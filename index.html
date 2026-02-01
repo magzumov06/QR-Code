@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For You</title>
   <style>
-    /* Бакграунд ва layout */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -22,13 +21,13 @@
     h1 {
       margin-bottom: 20px;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      color: red;
     }
 
-    /* Контейнер барои видео */
     .video-container {
       position: relative;
-      width: 300px;
-      max-width: 400px;
+      width: 400px;
+      max-width: 600px;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
@@ -36,13 +35,12 @@
     }
 
     video {
-      width: 300px;
-      height: 400px;
+      width: 400%;
+      height: 600px;
       display: block;
       background: black;
     }
 
-    /* Тугмаҳои видео */
     .controls {
       display: flex;
       justify-content: center;
@@ -69,11 +67,11 @@
   </style>
 </head>
 <body>
-  <h1>For You</h1>
+  <h1>For You!</h1>
 
   <div class="video-container">
     <video id="myVideo" autoplay muted playsinline>
-      <source src="VID_20260130_041425_662.mp4" type="video/mp4">
+      <source src="salom.mp4" type="video/mp4">
       Браузер видеоро дастгирӣ намекунад
     </video>
   </div>
@@ -82,6 +80,7 @@
     <button onclick="playVideo()">Боз кардан ▶️</button>
     <button onclick="pauseVideo()">Пауз ⏸️</button>
     <button onclick="restartVideo()">Аз аввала 🔄</button>
+    <button onclick="toggleMute()">Овоз 🔊</button>
   </div>
 
   <script>
@@ -98,6 +97,11 @@
     function restartVideo() {
       video.currentTime = 0;
       video.play();
+    }
+
+    function toggleMute() {
+      video.muted = !video.muted;
+      alert(video.muted ? "Видео хомӯш аст 🔇" : "Овоз фаол аст 🔊");
     }
   </script>
 </body>
