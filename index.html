@@ -1,16 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="tg">
 <head>
-    <meta charset="UTF-8">
-    <title>Видеои ман</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Видеои Ман</title>
+  <style>
+    /* Бакграунд ва layout */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+
+    /* Контейнер барои видео */
+    .video-container {
+      position: relative;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      margin-bottom: 20px;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: black;
+    }
+
+    /* Тугмаҳои видео */
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .controls button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px;
+      background-color: rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .controls button:hover {
+      background-color: rgba(255,255,255,0.5);
+      color: #000;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-<h2>Видеои ман</h2>
+  <h1>Видеои Ман</h1>
 
-<video width="400" controls>
-    <source src="VID_20260130_041425_662.mp4" type="video/mp4">
-    Браузер видеоро дастгирӣ намекунад
-</video>
+  <div class="video-container">
+    <video id="myVideo" autoplay muted playsinline>
+      <source src="salom.mp4" type="video/mp4">
+      Браузер видеоро дастгирӣ намекунад
+    </video>
+  </div>
 
+  <div class="controls">
+    <button onclick="playVideo()">Боз кардан ▶️</button>
+    <button onclick="pauseVideo()">Пауз ⏸️</button>
+    <button onclick="restartVideo()">Аз аввала 🔄</button>
+  </div>
+
+  <script>
+    const video = document.getElementById('myVideo');
+
+    function playVideo() {
+      video.play();
+    }
+
+    function pauseVideo() {
+      video.pause();
+    }
+
+    function restartVideo() {
+      video.currentTime = 0;
+      video.play();
+    }
+  </script>
 </body>
 </html>
